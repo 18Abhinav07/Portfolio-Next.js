@@ -49,7 +49,6 @@ export default function Landing_Welcome() {
                     transition={{ duration: 1.5, delay: 2, ease: "easeInOut" }}
                     className="absolute inset-0 bg-black origin-center"
                 >
-
                     <Name_Animated />;
 
                     {/* Rendering the Image Grid. */}

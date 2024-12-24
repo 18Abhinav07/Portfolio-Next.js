@@ -1,6 +1,10 @@
 import localFont from 'next/font/local';
 
-const AQUIRE = localFont({ src: '../../../public/fonts/AQUIRE.otf' });
+export const AQUIRE = localFont({ src: '../../../public/fonts/AQUIRE.otf' });
 
-export { AQUIRE };
+export const GLITCH = localFont({ src: '../../../public/fonts/GLITCH.ttf' });
+
+export const TERMINAL = localFont({ src: '../../../public/fonts/TERMINAL.otf' });
+    
+
 

@@ -1,3 +1,5 @@
+"use client";
+
 import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import { FiArrowRight } from "react-icons/fi";
@@ -8,33 +10,27 @@ export const Links = () => {
             <div className="mx-auto max-w-5xl">
                 <Link
                     heading="About"
-                    subheading="Learn what we do here"
-                    imgSrc="/imgs/random/11.jpg"
-                    href="#"
-                />
-                <Link
-                    heading="Clients"
-                    subheading="We work with great people"
-                    imgSrc="/imgs/random/6.jpg"
-                    href="#"
+                    subheading="Well, get to know me professionally ..."
+                    imgSrc="/images/links/Abhinav_Anime_BGR.png"
+                    href="/components/about/"
                 />
                 <Link
                     heading="Portfolio"
-                    subheading="Our work speaks for itself"
-                    imgSrc="/imgs/random/4.jpg"
-                    href="#"
+                    subheading="Some projects I've worked on ..."
+                    imgSrc="/images/links/Project.jpg"
+                    href="/components/portfolio-projects/"
                 />
                 <Link
-                    heading="Careers"
-                    subheading="We want cool people"
-                    imgSrc="/imgs/random/5.jpg"
-                    href="#"
+                    heading="Contact"
+                    subheading="It's always nice to meet someone new ..."
+                    imgSrc="/images/links/Contact.png"
+                    href="components/contact/"
                 />
                 <Link
-                    heading="Fun"
-                    subheading="Incase you're bored"
-                    imgSrc="/imgs/random/10.jpg"
-                    href="#"
+                    heading="Me"
+                    subheading="Incase you want to know more about me ..."
+                    imgSrc="/images/links/Me.png"
+                    href="/components/me/"
                 />
             </div>
         </section>
@@ -125,6 +121,8 @@ const Link = ({ heading, imgSrc, subheading, href }: LinkProps) => {
                     left,
                     translateX: "-50%",
                     translateY: "-50%",
+                    padding: "2px",
+                    backgroundColor: "white",
                 }}
                 variants={{
                     initial: { scale: 0, rotate: "-12.5deg" },
@@ -132,7 +130,7 @@ const Link = ({ heading, imgSrc, subheading, href }: LinkProps) => {
                 }}
                 transition={{ type: "spring" }}
                 src={imgSrc}
-                className="absolute z-0 h-24 w-32 rounded-lg object-cover md:h-48 md:w-64"
+                className="absolute z-0 rounded-lg object-contain md:h-48 md:w-64"
                 alt={`Image representing a link for ${heading}`}
             />
 

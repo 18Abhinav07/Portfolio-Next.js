@@ -1,4 +1,5 @@
 "use client";
+
 import { cn } from "../../utils/ui-utils";
 import { motion } from "framer-motion";
 import React from "react";
@@ -17,7 +18,7 @@ export const BackgroundLines = ({
     return (
         <div
             className={cn(
-                "h-[20rem] md:h-screen w-full bg-black",
+                "h-[20rem] md:h-[100vh] w-full bg-black",
                 className
             )}
         >

@@ -41,7 +41,7 @@ export default function VariableImageGrid() {
                 return (
                     <motion.div
                         key={index}
-                        className="relative overflow-hidden rounded-lg bg-gray-800"
+                        className="relative items-center justify-center p-1 overflow-hidden rounded-lg bg-white"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 3, delay: 3 + index * 0.2, ease: "easeIn" }}
@@ -53,7 +53,7 @@ export default function VariableImageGrid() {
                         <Image
                             src={image}
                             alt={`Gallery Image ${index + 1}`}
-                            className="block h-full w-full object-cover"
+                            className="block w-full h-full object-cover"
                             width={400}
                             height={200}
                         />
