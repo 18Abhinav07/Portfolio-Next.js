@@ -34,7 +34,11 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({ text, className }) => {
             animate="visible"
         >
             {letters.map((letter, index) => (
-                <motion.span key={index} variants={child}>
+                <motion.span
+                    key={index}
+                    variants={child}
+                    className="hover:text-green-500 hover:font-AQUIRE"
+                >
                     {letter === " " ? "\u00A0" : letter}
                 </motion.span>
             ))}

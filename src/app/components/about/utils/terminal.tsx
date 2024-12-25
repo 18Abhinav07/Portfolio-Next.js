@@ -75,7 +75,7 @@ const TerminalPortfolio = () => {
     }, []);
 
     return (
-        <div className="w-[95%] h-[90%] backdrop-blur-sm flex flex-col rounded-xl border border-gray-500/50 shadow-2xl">
+        <div className="w-[95%] min-h-[90%] m-5 backdrop-blur-sm flex flex-col rounded-xl border border-gray-500/50 shadow-2xl">
             {/* Terminal Header */}
             <div className="flex items-center justify-between px-4 py-2 rounded-t-xl border-b border-gray-700/50">
                 <div className="flex space-x-2">
@@ -91,7 +91,7 @@ const TerminalPortfolio = () => {
 
             {/* Terminal Content */}
             {isMounted && (
-                <div className="p-6 font-roboto text-white space-y-4 min-h-[90%] ">
+                <div className="p-6 font-roboto text-white space-y-4 w-full min-h-[90%] ">
                     {commands.slice(0, currentCommandIndex + 1).map((command, index) => (
                         <div key={index} className="space-y-4">
                             <div className="flex items-center font-bold text-gray-200">
@@ -100,7 +100,7 @@ const TerminalPortfolio = () => {
                                     <span className="text-green-400 mr-2 font-roboto">18Abhinav07%</span>
                                     {index === currentCommandIndex ? typedText : command.text}
                                     {index === currentCommandIndex && typedText === command.text && cursorVisible && (
-                                        <span className="text-white"> ▋</span>
+                                        <span className="text-green-400 font-bold">_</span>
                                     )}
                                 </span>
                             </div>

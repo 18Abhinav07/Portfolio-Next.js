@@ -4,6 +4,7 @@ import { easeIn, motion } from "framer-motion";
 import Background from "./utils/background";
 import StarterAnimation from "./utils/starter-animation"
 import TerminalPortfolio from "./utils/terminal";
+import Navigation from "../../utils/navigation-ham"
 
 export default function About() {
     return (
@@ -23,18 +24,19 @@ export default function About() {
                 </motion.div>
 
                 <motion.div
-                    initial={{ opacity: 0}}
+                    initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{
                         delay: 4,
                         duration: 1,
                         ease: easeIn,
                     }}
-                    className="absolute top-0 left-0 w-full h-full flex items-center justify-center"
+                    className="absolute top-0 left-0 w-full min-h-full flex items-center justify-center"
                 >
                     <TerminalPortfolio />
                 </motion.div>
             </div>
+            <Navigation />
         </>
     )
 }

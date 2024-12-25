@@ -17,10 +17,7 @@ export default function Home() {
       <AuroraBackground >
         <Links />
       </AuroraBackground>
-
-
-
-
+      
     </>
   );
 }
