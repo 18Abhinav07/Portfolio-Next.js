@@ -7,48 +7,37 @@ import { BackgroundLines } from "./background-lines";
 export default function Name_Animated() {
   return (
     <>
-      <div
-        className={`flex lg:flex-row flex-col top-[45%]
-                            w-full h-full items-center justify-center lg:text-7xl text-5xl font-bold text-blue-300 ${AQUIRE.className}`}
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        transition={{ duration: 8, delay: 3, ease: "easeInOut" }}
+        className={`flex items-center justify-center z-20 w-[100vw] h-[100vh] text-white  md:text-8xl text-6xl font-bold ${AQUIRE.className}`}
+        style={{ gap: "5px" }}
       >
-        <div>
-          {"ABHINAV ".split("").map((char, index) => (
-            <span
-              key={index}
-              className="inline-block z-20"
-              style={{
-                textShadow:
-                  "0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.5)",
-              }}
-            >
-              {char === " " ? "\u00A0" : char}
-            </span>
-          ))}
-        </div>
-
-        <div>
-          {"PANGARIA ".split("").map((char, index) => (
-            <span
-              key={index}
-              className="inline-block z-20"
-              style={{
-                textShadow:
-                  "0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.5)",
-              }}
-            >
-              {char === " " ? "\u00A0" : char}
-            </span>
-          ))}
-        </div>
-      </div>
+        {"ABHINAV".split("").map((letter, index) => (
+          <motion.span
+            key={index}
+            initial={{ opacity: 0, scale: 1 }}
+            animate={{ opacity: 1, scale: [1.5, 1] }}
+            transition={{
+              delay: 3 + index * 0.2, // Stagger the delay for each letter
+              duration: 2,
+              ease: "easeInOut",
+            }}
+            className="font-AQUIRE"
+          >
+            {letter}
+          </motion.span>
+        ))}
+      </motion.div>
 
       <motion.div
-        className="w-full h-screen absolute inset-0"
+        className="w-[100vw] h-[100vh] absolute inset-0 top-0 left-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
           duration: 2,
-          delay: 14,
+          delay: 11,
           ease: "easeInOut",
         }}
       >
@@ -67,7 +56,7 @@ export default function Name_Animated() {
                       "0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.5)",
                   }}
                   animate={{
-                    scale: [1, 2, 1],
+                    scale: [1, 1.5, 1],
                   }}
                   transition={{
                     duration: 2,
@@ -92,7 +81,7 @@ export default function Name_Animated() {
                       "0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.5)",
                   }}
                   animate={{
-                    scale: [1, 2, 1],
+                    scale: [1, 1.5, 1],
                   }}
                   transition={{
                     duration: 2,

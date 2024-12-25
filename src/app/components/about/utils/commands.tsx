@@ -3,7 +3,7 @@ import { InfiniteTechStack } from "./tech-stack";
 import TypewriterText from "./typewriter-text";
 
 const generateCommandComponent = (title: string, content: React.ReactNode) => (
-    <div className="md:p-4 p-2 w-full rounded-md mt-4 backdrop-blur-sm md:text-center text-wrap">
+    <div className="md:p-4 p-2 w-full rounded-md mt-4 backdrop-blur-sm md:text-center overflow-hidden">
         <h2 className={`md:text-4xl text-2xl text-green-400 ${TERMINAL.className} mb-3`}>
             {title}
         </h2>
@@ -23,29 +23,29 @@ export const commands = [
             "Introduction",
             <>
                 <TypewriterText text={texts[0]} className='flex md:m-5 font-bold md:text-4xl md:justify-center md:items-center text-xl' />
-                <span className="text-gray-200 text-lg max-w-full font-roboto text-wrap">
+                <span className="text-gray-200 text-lg max-w-full font-roboto">
                     A passionate developer crafting digital experiences with a love for clean code and innovative solutions.
                     Make better description etc
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
-                    INTRODUCTION 
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
+                    INTRODUCTION
                     ABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUTABOUT
                     INTRODUCTION
                 </span>

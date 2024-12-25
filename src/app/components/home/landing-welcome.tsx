@@ -9,7 +9,7 @@ export default function Landing_Welcome() {
     const letters = "WELCOME".split(""); // Split the text into individual letters
     return (
         <>
-            <div className="relative flex items-center justify-center min-h-screen min-w-screen bg-black overflow-hidden">
+            <div className="relative flex items-center justify-center min-h-[100vh] min-w-[100vw] bg-black overflow-hidden">
                 {/* White Line Progress Animation */}
                 < motion.div
                     initial={{ width: "0%" }
@@ -49,19 +49,18 @@ export default function Landing_Welcome() {
                     transition={{ duration: 1.5, delay: 2, ease: "easeInOut" }}
                     className="absolute inset-0 bg-black origin-center"
                 >
-                    <Name_Animated />;
+                    <Name_Animated />
 
                     {/* Rendering the Image Grid. */}
                     <motion.div
                         initial={{ opacity: 1 }}
                         animate={{ opacity: 0 }}
-                        transition={{ duration: 15, delay: 0, ease: "easeInOut" }}
+                        transition={{ duration: 15, delay: 3, ease: "easeInOut" }}
                         className="absolute inset-0 z-0"
                     >
                         <VariableImageGrid />
 
                     </motion.div>
-
                 </motion.div>
             </div>
         </>

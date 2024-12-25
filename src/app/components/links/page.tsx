@@ -6,8 +6,14 @@ import { FiArrowRight } from "react-icons/fi";
 
 export const Links = () => {
     return (
-        <section className=" w-[75vw] md:p-8">
+        <section className=" w-[75vw] min-h-[] md:p-8">
             <div className="mx-auto max-w-5xl">
+                <Link
+                    heading="Home"
+                    subheading="What goes around comes around ..."
+                    imgSrc="/images/links/Home.png"
+                    href="/"
+                />
                 <Link
                     heading="About"
                     subheading="Well, get to know me professionally ..."
@@ -17,7 +23,7 @@ export const Links = () => {
                 <Link
                     heading="Portfolio"
                     subheading="Some projects I've worked on ..."
-                    imgSrc="/images/links/Project.jpg"
+                    imgSrc="/images/links/Code3D.png"
                     href="/components/portfolio-projects/"
                 />
                 <Link

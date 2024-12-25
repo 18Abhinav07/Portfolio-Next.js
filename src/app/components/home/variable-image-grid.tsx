@@ -2,64 +2,62 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { images } from "./constants";
+import { useEffect, useState } from "react";
 
-
-type Span = {
-    colSpan: number;
-    rowSpan: number;
-};
-
-function getRandomSpan() {
-    return Math.floor(Math.random() * 2) + 1; // Random span between 1 and 3
+// Utility function to shuffle an array
+function shuffleArray<T>(array: T[]): T[] {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
 }
 
+
+
 export default function VariableImageGrid() {
-    const [spans, setSpans] = useState<Span[]>([]);
+
+    const [shuffledImages, setShuffledImages] = useState<string[]>([]);
 
     useEffect(() => {
-        // Generate spans on the client-side after mount
-        const newSpans = images.map(() => ({
-            colSpan: getRandomSpan(),
-            rowSpan: getRandomSpan(),
-        }));
-        setSpans(newSpans);
+        // Shuffle the images when the component mounts
+        setShuffledImages(shuffleArray(images));
     }, []);
 
     return (
         <div
-            className="px-2 py-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
+            className="abolute top-0 left-0 px-2 py-2 grid gap-4"
             style={{
-                gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-                gridAutoRows: "200px", // control the row height
+                gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                gridAutoRows: "auto", // Automatically adjust row height
             }}
         >
-            {images.map((image, index) => {
-                const { colSpan, rowSpan } = spans[index] || { colSpan: 1, rowSpan: 1 }; // Use default values before spans are set
-
-                return (
-                    <motion.div
-                        key={index}
-                        className="relative items-center justify-center p-1 overflow-hidden rounded-lg bg-white"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 3, delay: 3 + index * 0.2, ease: "easeIn" }}
-                        style={{
-                            gridColumn: `span ${colSpan}`,
-                            gridRow: `span ${rowSpan}`,
-                        }}
-                    >
-                        <Image
-                            src={image}
-                            alt={`Gallery Image ${index + 1}`}
-                            className="block w-full h-full object-cover"
-                            width={400}
-                            height={200}
-                        />
-                    </motion.div>
-                );
-            })}
+            {shuffledImages.map((image, index) => (
+                <motion.div
+                    key={index}
+                    className="overflow-hidden items-center justify-center flex rounded-lg"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 0.8, scale: 1 }}
+                    transition={{
+                        duration: 1,
+                        delay: 3 + index * 0.5,
+                        type: "spring",
+                        ease: "easeIn"
+                    }}
+                >
+                    <Image
+                        src={image}
+                        alt={`Gallery Image ${index + 1}`}
+                        className="block object-cover w-full h-full"
+                        width={500} // Adjust as per your design needs
+                        height={300} // Adjust as per your design needs
+                        layout="responsive" // This ensures the image size is proportional
+                    />
+                </motion.div>
+            ))}
         </div>
+
     );
 }
