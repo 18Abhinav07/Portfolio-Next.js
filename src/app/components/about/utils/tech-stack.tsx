@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import {
     SiReact, SiNextdotjs, SiTypescript,
     SiJavascript, SiTailwindcss, SiPrisma,
-    SiPostgresql, SiMongodb, SiRedis,
+    SiPostgresql, SiMongodb,
     SiPython, SiRust, SiSolidity,
     SiEthereum, SiWeb3Dotjs, SiIpfs,
     SiGit, SiDocker, SiKubernetes,
-    SiAmazon, SiGooglecloud, SiVercel,
-    SiNodedotjs, SiExpress, SiGraphql
+    SiAmazon, SiCplusplus,
+    SiNodedotjs, SiExpress
 } from "react-icons/si";
 import { IconType } from "react-icons";
 
@@ -35,12 +35,12 @@ const techStack: TechStack[] = [
     { icon: SiNodedotjs, name: "Node.js", category: "Backend", color: "#339933" },
     { icon: SiExpress, name: "Express", category: "Backend", color: "#FFFFFF" }, // Adjusted from black
     { icon: SiPrisma, name: "Prisma", category: "Backend", color: "#A8B9CC" }, // Adjusted from dark gray
-    { icon: SiGraphql, name: "GraphQL", category: "Backend", color: "#E10098" },
+    // { icon: SiGraphql, name: "GraphQL", category: "Backend", color: "#E10098" },
 
     // Database
     { icon: SiPostgresql, name: "PostgreSQL", category: "Database", color: "#4169E1" },
     { icon: SiMongodb, name: "MongoDB", category: "Database", color: "#47A248" },
-    { icon: SiRedis, name: "Redis", category: "Database", color: "#DC382D" },
+    // { icon: SiRedis, name: "Redis", category: "Database", color: "#DC382D" },
 
     // Web3
     { icon: SiSolidity, name: "Solidity", category: "Web3", color: "#FFFFFF" }, // Adjusted from dark gray
@@ -55,12 +55,13 @@ const techStack: TechStack[] = [
 
     // Cloud
     { icon: SiAmazon, name: "AWS", category: "Cloud", color: "#FF9900" },
-    { icon: SiGooglecloud, name: "GCP", category: "Cloud", color: "#4285F4" },
-    { icon: SiVercel, name: "Vercel", category: "Cloud", color: "#FFFFFF" }, // Adjusted from black
+    // { icon: SiGooglecloud, name: "GCP", category: "Cloud", color: "#4285F4" },
+    // { icon: SiVercel, name: "Vercel", category: "Cloud", color: "#FFFFFF" }, // Adjusted from black
 
     // Languages
     { icon: SiPython, name: "Python", category: "Languages", color: "#3776AB" },
     { icon: SiRust, name: "Rust", category: "Languages", color: "#D1D1D1" }, // Adjusted from black
+    { icon: SiCplusplus, name: "C++", category: "Languages", color: "#D1D1D1" }, // Adjusted from black
 ];
 
 interface InfiniteCarouselProps {
