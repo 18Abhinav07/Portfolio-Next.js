@@ -9,7 +9,7 @@ const TerminalContactForm = () => {
     const [message, setMessage] = useState('');
     const [output, setOutput] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-    const imagePath = '/images/background/StarryBG1.jpg';
+    // const imagePath = '/images/background/StarryBG1.jpg';
 
     const addToOutput = (text: string) => {
         setOutput(prev => [...prev, text]);
@@ -52,9 +52,9 @@ const TerminalContactForm = () => {
 
     return (
         <div
-            style={{
-                backgroundImage: `url(${imagePath})`,
-            }}
+            // style={{
+            //     backgroundImage: `url(${imagePath})`,
+            // }}
             className='w-[100vw] min-h-[100vh] flex items-center justify-center bg-cover'>
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
