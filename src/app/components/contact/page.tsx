@@ -6,6 +6,7 @@ import TerminalContactForm from "./utils/terminal-contact-form";
 import { AuroraBackground } from "../home/aurora-background";
 import { Lamp } from "./utils/starter-animation";
 import { motion } from "framer-motion";
+import Navigation from "../../utils/navigation-ham"
 
 export default function Contact() {
     return (
@@ -14,7 +15,7 @@ export default function Contact() {
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 0 }}
                 transition={{
-                    delay: 5,
+                    delay: 10,
                     duration: 3
                 }}
             >
@@ -23,9 +24,9 @@ export default function Contact() {
 
             <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1,}}
+                animate={{ opacity: 1, }}
                 transition={{
-                    delay: 8,
+                    delay: 12,
                     duration: 3
                 }}
                 className="absolute top-0 left-0">
@@ -37,8 +38,7 @@ export default function Contact() {
                     </section>
                 </AuroraBackground>
             </motion.div>
-
-
+            <Navigation />
         </>
     )
 

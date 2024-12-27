@@ -2,19 +2,22 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "../../../utils/ui-utils";
+import { AQUIRE } from "../../../utils/fonts";
+import { TextAnimation } from "./text-animation";
 
 export function Lamp() {
+
     return (
         <LampContainer>
             <motion.h1
-                initial={{ opacity: 0.5, y: 100 }}
+                initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
                     delay: 0.3,
-                    duration: 0.8,
+                    duration: 1,
                     ease: "easeInOut",
                 }}
-                className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+                className={`mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-6xl ${AQUIRE.className}`}
             >
                 Contact Me,<br /> {`Let's get in touch!`}
             </motion.h1>
@@ -29,6 +32,7 @@ export const LampContainer = ({
     children: React.ReactNode;
     className?: string;
 }) => {
+    const text = "Job Offers, Collaborations, or just to say Hi!";
     return (
         <div
             className={cn(
@@ -36,7 +40,9 @@ export const LampContainer = ({
                 className
             )}
         >
-            <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0 ">
+
+            <TextAnimation text={text} />
+            <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0">
                 <motion.div
                     initial={{ opacity: 0.5, width: "15rem" }}
                     whileInView={{ opacity: 1, width: "30rem" }}

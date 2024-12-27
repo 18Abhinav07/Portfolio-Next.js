@@ -21,8 +21,8 @@ export const Links = () => {
                     href="/components/about/"
                 />
                 <Link
-                    heading="Portfolio"
-                    subheading="Some projects I've worked on ..."
+                    heading="Portfolio & Me"
+                    subheading="Some projects I've worked on and more about me .."
                     imgSrc="/images/links/Code3D.png"
                     href="/components/portfolio-projects/"
                 />
@@ -31,12 +31,6 @@ export const Links = () => {
                     subheading="It's always nice to meet someone new ..."
                     imgSrc="/images/links/Contact.png"
                     href="components/contact/"
-                />
-                <Link
-                    heading="Me"
-                    subheading="Incase you want to know more about me ..."
-                    imgSrc="/images/links/Me.png"
-                    href="/components/me/"
                 />
             </div>
         </section>
