@@ -158,7 +158,7 @@ const TerminalContactForm = () => {
                 </motion.div>
             </div>
             <div className=" bottom-0 z-30 w-full">
-                <TextAnimation text={text} />
+                <TextAnimation text={text} direction="right" />
             </div>
         </div>
     );

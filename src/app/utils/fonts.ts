@@ -7,6 +7,8 @@ export const GLITCH = localFont({ src: '../../../public/fonts/GLITCH.ttf' });
 export const TERMINAL = localFont({ src: '../../../public/fonts/TERMINAL.otf' });
     
 export const VINDEY = localFont({ src: '../../../public/fonts/VINDEY.ttf' });
+
+export const STAR = localFont({ src: '../../../public/fonts/STAR.ttf' });
     
 
 

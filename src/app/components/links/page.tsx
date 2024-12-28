@@ -30,7 +30,7 @@ export const Links = () => {
                     heading="Contact"
                     subheading="It's always nice to meet someone new ..."
                     imgSrc="/images/links/Contact.png"
-                    href="components/contact/"
+                    href="/components/contact/"
                 />
             </div>
         </section>

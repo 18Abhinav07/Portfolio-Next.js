@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'assets.aceternity.com',
+        pathname: '/**',
+      },
     ],
   },
 };

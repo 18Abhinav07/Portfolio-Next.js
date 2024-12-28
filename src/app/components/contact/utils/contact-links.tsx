@@ -124,7 +124,7 @@ export const ContactLinks: React.FC = () => {
 
             </div>
             <div className="relative z-10 max-w-full">
-                <TextAnimation text={text} />
+                <TextAnimation text={text} direction="right"/>
             </div>
         </>
     );

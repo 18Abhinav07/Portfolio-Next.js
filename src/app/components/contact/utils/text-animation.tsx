@@ -5,16 +5,18 @@ import { TERMINAL } from "../../../utils/fonts";
 
 interface TextAnimationOverlayProps {
     text: string;
+    direction: string;
+
 }
 
-const TextAnimationOverlay: React.FC<TextAnimationOverlayProps> = ({ text }) => {
+const TextAnimationOverlay: React.FC<TextAnimationOverlayProps> = ({ text, direction }) => {
     const letters = text.split("");
 
     return (
         <motion.div
             className="flex"
             animate={{
-                x: ["100%", "-100%"],
+                x: direction === "right" ? ["100%", "-100%"] : ["-100%", "100%"],
             }}
             transition={{
                 x: {
@@ -42,12 +44,13 @@ const TextAnimationOverlay: React.FC<TextAnimationOverlayProps> = ({ text }) => 
 
 interface TextAnimationProps {
     text: string;
+    direction: string;
 }
 
-export const TextAnimation: React.FC<TextAnimationProps> = ({ text }) => {
+export const TextAnimation: React.FC<TextAnimationProps> = ({ text, direction }) => {
     return (
         <div className="absolute bottom-0 z-5 w-full bg-transparent opacity-50 text-white flex items-center justify-center overflow-hidden m-5">
-            <TextAnimationOverlay text={text} />
+            <TextAnimationOverlay text={text} direction={direction} />
         </div>
     );
 };
