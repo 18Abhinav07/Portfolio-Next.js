@@ -4,7 +4,7 @@ import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import { FiArrowRight } from "react-icons/fi";
 
-export const Links = () => {
+const Links = () => {
     return (
         <section className=" w-[75vw] min-h-[] md:p-8">
             <div className="mx-auto max-w-5xl">
@@ -153,3 +153,6 @@ const Link = ({ heading, imgSrc, subheading, href }: LinkProps) => {
         </motion.a>
     );
 };
+
+
+export default Links;

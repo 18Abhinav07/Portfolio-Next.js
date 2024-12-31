@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { Links } from "../components/links/page";
+import Links from "../components/links/page";
 
 const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false);

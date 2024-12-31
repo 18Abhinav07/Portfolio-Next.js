@@ -2,7 +2,7 @@
 
 import { AuroraBackground } from "./components/home/aurora-background";
 import Landing_Welcome from "./components/home/landing-welcome";
-import { Links } from "./components/links/page";
+import Links from "./components/links/page";
 import SmoothScrolling from "./utils/smoothScrolling";
 
 
