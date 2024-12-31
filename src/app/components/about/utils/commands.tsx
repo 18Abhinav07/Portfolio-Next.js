@@ -26,7 +26,7 @@ export const commands = [
                     className="flex md:m-5 font-bold md:text-4xl md:justify-center md:items-center text-xl"
                 />
                 <span className="text-gray-200 text-lg max-w-full font-roboto leading-relaxed">{`
-                    A driven software engineer with a passion for blockchain technology and scalable solutions. Currently pursuing my B.Tech in Computer Science at IIIT Guwahati with a stellar academic record of 9.55 CGPA. I blend theoretical knowledge with practical expertise to create innovative solutions that push the boundaries of what's possible in software development.`}
+                   I specialize in building websites, designing frontends, structuring backends, and developing secure smart contracts on Ethereum. I have hands-on experience with a wide range of technologies, successfully leading and collaborating on projects both independently and as part of a team, from concept to deployment.`}
                 </span>
             </>
         ),
@@ -36,9 +36,11 @@ export const commands = [
         component: generateCommandComponent(
             "About Me",
             <span className={`text-gray-200 text-lg leading-relaxed`}>
-                {`As an emerging software engineer, I thrive at the intersection of blockchain technology and enterprise solutions. My experience at Blockpay demonstrates my ability to optimize performance and reduce costs, achieving a 12% reduction in gas usage and 52% decrease in transaction fees through innovative solutions like native stablecoin integration. I'm particularly passionate about DeFi, cross-border payments, and creating efficient, secure systems that solve real-world challenges.
+                {`As an emerging software engineer, I excel at the intersection of blockchain technology and enterprise solutions, with the versatility to navigate both Web2 and Web3 environments seamlessly.
 
-                Beyond technical skills, I bring a proven track record of leadership and innovation, as evidenced by my success in prestigious hackathons like Hacker House Goa and JP Morgan's Code for Good, where I've developed solutions that made meaningful impacts on businesses and communities alike.`}
+                I contributed to the development of BlockPay and have hands-on experience in DeFi, blockchain protocols, backend systems, and frontend development.
+
+                Beyond technical expertise, I bring a strong track record of leadership and innovation. My accomplishments include success in prestigious hackathons like Hacker House Goa and JP Morgan's Code for Good, where I collaborated with my team to create impactful solutions for businesses and communities.`}
             </span>
         ),
     },
@@ -54,9 +56,11 @@ export const commands = [
                     className="mx-auto"
                 />
                 <span className="block m-5 text-gray-200 text-lg font-roboto leading-relaxed">
-                    {`My technical arsenal spans both traditional and cutting-edge technologies. I specialize in blockchain development with expertise in Solidity and Rust, implementing complex smart contracts and DeFi solutions. My full-stack capabilities include proficiency in JavaScript/TypeScript, React, Node.js, and MongoDB, complemented by deep knowledge of blockchain protocols and standards (ERC-20, 721, 1155, 2771).
+                    {`My technical portfolio bridges traditional and cutting-edge technologies, enabling me to deliver innovative solutions. I specialize in end-to-end Web3 development, with expertise in Solidity for implementing complex smart contracts and DeFi solutions. My full-stack capabilities encompass JavaScript/TypeScript, React, Node.js, and MongoDB, alongside a solid understanding of various ERC standards.
 
-                    I'm well-versed in development tools and practices including Foundry for smart contract testing, Hardhat for Ethereum development, and Docker for containerization. My experience with IPFS and various blockchain protocols enables me to build robust, decentralized applications that meet modern scalability and security requirements.`}
+                    I have hands-on experience with development tools such as Docker, Foundry, Kubernetes, Hardhat, and AWS, which have been instrumental in building scalable and efficient systems.
+
+                    Driven by a passion for innovation, I continually explore and adapt to emerging technologies in the industry to stay ahead in the rapidly evolving tech landscape.`}
                 </span>
             </div>
         ),
@@ -75,7 +79,7 @@ export const commands = [
                 <div className="mt-4">
                     <span className="font-semibold text-green-400">Key Coursework:</span>
                     <p className="mt-2 leading-relaxed">
-                        My academic journey encompasses advanced study in Data Structures and Algorithms, Machine Learning and AI, Cloud Computing, Database Management, Computational Theory, and Computer Networks. This comprehensive curriculum has equipped me with both theoretical depth and practical expertise in modern software development.
+                         My coursework in my time at IIIT Guwahati includes Data Structures and Algorithms, Machine Learning and AI, Cloud Computing, Database Management, Computational Theory, and Computer Networks. This comprehensive curriculum has equipped me with both theoretical depth and practical expertise in modern software development.
                     </p>
                 </div>
             </div>
