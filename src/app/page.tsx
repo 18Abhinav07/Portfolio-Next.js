@@ -21,14 +21,26 @@ const preloadImages = (imageUrls: string[]) => {
   );
 };
 
+// Utility function to shuffle an array
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export default function Home() {
   const [preloadedImages, setPreloadedImages] = useState<string[]>([]);
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [shuffledImages, setShuffledImages] = useState<string[]>([]);
 
   useEffect(() => {
     preloadImages(images)
       .then((loadedImages) => {
         setPreloadedImages(loadedImages as string[]);
+        setShuffledImages(shuffleArray(preloadedImages));
         setImagesLoaded(true);
       })
       .catch((err) => console.error("Error loading images", err));
@@ -44,7 +56,7 @@ export default function Home() {
         </div>
       ) : (
         <>
-          <Landing_Welcome images={preloadedImages} />
+          <Landing_Welcome images={shuffledImages} />
           <AuroraBackground>
             <Links />
           </AuroraBackground>

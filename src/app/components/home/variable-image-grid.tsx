@@ -8,22 +8,11 @@ interface VariableImageGridProps {
     images: string[];
 }
 
-// Utility function to shuffle an array
-function shuffleArray<T>(array: T[]): T[] {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-}
+
 
 export default function VariableImageGrid({ images }: VariableImageGridProps) {
-    const [shuffledImages, setShuffledImages] = useState<string[]>([]);
 
-    useEffect(() => {
-        setShuffledImages(shuffleArray(images));
-    }, [images]);
+
 
     return (
         <div
@@ -33,7 +22,7 @@ export default function VariableImageGrid({ images }: VariableImageGridProps) {
                 gridAutoRows: "auto",
             }}
         >
-            {shuffledImages.map((image, index) => (
+            {images.map((image, index) => (
                 <motion.div
                     key={index}
                     className="overflow-hidden items-center justify-center flex rounded-lg"
@@ -46,13 +35,11 @@ export default function VariableImageGrid({ images }: VariableImageGridProps) {
                         ease: "easeIn",
                     }}
                 >
-                    <Image
+                    <img
                         src={image}
                         alt={`Gallery Image ${index + 1}`}
                         className="block object-cover w-full h-full"
-                        width={500}
-                        height={300}
-                        layout="responsive"
+                        loading="eager" // Ensures images are loaded immediately
                     />
                 </motion.div>
             ))}

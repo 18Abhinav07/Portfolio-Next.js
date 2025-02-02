@@ -84,12 +84,10 @@ const Card = ({ project, containerRef }: CardProps) => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
             >
-                <Image
+                <img
                     draggable={false}
                     src={project.image}
                     alt={project.title}
-                    width={300}
-                    height={300}
                     className="h-40 w-full rounded-md object-cover"
                 />
                 <div className="mt-4">
