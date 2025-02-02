@@ -5,9 +5,7 @@ import { AQUIRE } from "../../utils/fonts";
 import VariableImageGrid from "./variable-image-grid";
 import Name_Animated from "./name-animated";
 
-interface LandingWelcomeProps {
-    images: string[];
-}
+
 
 export default function Landing_Welcome() {
     const letters = "WELCOME".split("");

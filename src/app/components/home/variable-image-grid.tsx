@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { images } from "./constants";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 export default function VariableImageGrid() {
-    const [imageUrls, setImageUrls] = useState(images);
+    const imageUrls = images;
     const CACHE_NAME = 'image-grid-cache-v1';
 
     useEffect(() => {
