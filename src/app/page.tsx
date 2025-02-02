@@ -5,7 +5,7 @@ import Landing_Welcome from "./components/home/landing-welcome";
 import Links from "./components/links/page";
 import { useEffect, useState } from "react";
 import Loading from "./utils/loading";
-import { motion } from "framer-motion";
+
 
 export default function Home() {
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);

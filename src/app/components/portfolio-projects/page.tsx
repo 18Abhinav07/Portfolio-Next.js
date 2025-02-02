@@ -11,7 +11,6 @@ import Loading from "@/app/utils/loading";
 
 export default function PortfolioProjects() {
     const [preloadedImages, setPreloadedImages] = useState<string[]>([]);
-    const [imagesLoaded, setImagesLoaded] = useState(false);
     const [load, setLoad] = useState(false);
 
     useEffect(() => {
