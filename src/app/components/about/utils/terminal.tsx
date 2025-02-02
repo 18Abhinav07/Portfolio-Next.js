@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal } from 'lucide-react';
+import { Terminal, ArrowRight, ArrowLeft } from 'lucide-react';
 import { commands } from './commands';
-
 import FloatingCard from './floating-card';
 
 const TerminalPortfolio = () => {
@@ -47,16 +46,12 @@ const TerminalPortfolio = () => {
                 showComponent &&
                 typedText === commands[currentCommandIndex].text &&
                 currentCommandIndex < commands.length - 1) {
-                setCurrentCommandIndex(prev => prev + 1);
-                setTypedText("");
-                setShowComponent(false);
+                handleContinue();
             } else if (e.key === 'Escape' &&
                 showComponent &&
                 typedText === commands[currentCommandIndex].text &&
                 currentCommandIndex !== 0) {
-                setCurrentCommandIndex(prev => prev - 1);
-                setTypedText("");
-                setShowComponent(false);
+                handleRollback();
             }
         };
 
@@ -64,18 +59,35 @@ const TerminalPortfolio = () => {
         return () => window.removeEventListener('keydown', handleKeyPress);
     }, [currentCommandIndex, showComponent, typedText, isMounted]);
 
-    // Delay the commands logic by 5 seconds
+    // Navigation handlers
+    const handleContinue = () => {
+        if (currentCommandIndex < commands.length - 1) {
+            setCurrentCommandIndex(prev => prev + 1);
+            setTypedText("");
+            setShowComponent(false);
+        }
+    };
+
+    const handleRollback = () => {
+        if (currentCommandIndex > 0) {
+            setCurrentCommandIndex(prev => prev - 1);
+            setTypedText("");
+            setShowComponent(false);
+        }
+    };
+
+    // Initial delay
     useEffect(() => {
         const timeout = setTimeout(() => {
             setIsMounted(true);
             setCurrentCommandIndex(0);
-        }, 5000); // 5 seconds
+        }, 5000);
 
         return () => clearTimeout(timeout);
     }, []);
 
     return (
-        <div className="w-[95%] min-h-[90%] m-5 backdrop-blur-sm flex flex-col rounded-xl border border-gray-500/50 shadow-2xl">
+        <div className="w-[95%] min-h-[90%] m-5 backdrop-blur-sm flex flex-col rounded-xl border border-gray-500/50 shadow-2xl relative">
             {/* Terminal Header */}
             <div className="flex items-center justify-between px-4 py-2 rounded-t-xl border-b border-gray-700/50">
                 <div className="flex space-x-2">
@@ -91,7 +103,7 @@ const TerminalPortfolio = () => {
 
             {/* Terminal Content */}
             {isMounted && (
-                <div className="p-6 font-roboto text-white space-y-4 w-full min-h-[90%] ">
+                <div className="p-6 font-roboto text-white space-y-4 w-full min-h-[90%]">
                     {commands.slice(0, currentCommandIndex + 1).map((command, index) => (
                         <div key={index} className="space-y-4">
                             <div className="flex items-center font-bold text-gray-200">
@@ -114,10 +126,35 @@ const TerminalPortfolio = () => {
                 </div>
             )}
 
-            {/* Instructions */}
-            {showComponent && currentCommandIndex < commands.length - 1 && (
-                <div className="px-6 text-gray-400 text-sm font-bold">
+            {/* Navigation Controls - Always visible when component is shown */}
+            {showComponent && currentCommandIndex < commands.length && (
+                <div className="px-6 pb-4 space-y-4">
+                    {/* Navigation Buttons */}
+                    <div className="flex justify-center gap-4">
+                        {currentCommandIndex > 0 && (
+                            <button
+                                onClick={handleRollback}
+                                className="flex items-center gap-2 px-4 py-2 bg-gray-800 text-gray-200 rounded-md hover:bg-gray-700 transition-colors"
+                            >
+                                <ArrowLeft className="w-4 h-4" />
+                                Back
+                            </button>
+                        )}
+                        {currentCommandIndex < commands.length - 1 && (
+                            <button
+                                onClick={handleContinue}
+                                className="flex items-center gap-2 px-4 py-2 bg-green-700 text-white rounded-md hover:bg-green-600 transition-colors"
+                            >
+                                Continue
+                                <ArrowRight className="w-4 h-4" />
+                            </button>
+                        )}
+                    </div>
+
+                    {/* Keyboard Instructions */}
+                    <div className="text-center text-gray-400 text-sm font-bold">
                         Continue: ENTER || Rollback: ESC
+                    </div>
                 </div>
             )}
         </div>

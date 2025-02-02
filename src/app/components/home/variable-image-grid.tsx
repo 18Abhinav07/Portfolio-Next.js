@@ -5,7 +5,11 @@ import Image from "next/image";
 import { images } from "./constants";
 import { useEffect } from 'react';
 
-export default function VariableImageGrid() {
+interface Props {
+    timer: number;
+}
+
+export default function VariableImageGrid({ timer }: Props) {
     const imageUrls = images;
     const CACHE_NAME = 'image-grid-cache-v1';
 
@@ -67,7 +71,7 @@ export default function VariableImageGrid() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{
                             duration: 0.5,
-                            delay: 3 + index * 0.2,
+                            delay: 4 + timer + index * 0.2,
                             ease: "easeOut"
                         }}
                     >

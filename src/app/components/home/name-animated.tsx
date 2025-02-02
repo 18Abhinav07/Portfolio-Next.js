@@ -4,23 +4,27 @@ import { easeIn, motion } from "framer-motion";
 import { AQUIRE } from "../../utils/fonts";
 import { BackgroundLines } from "./background-lines";
 
-export default function Name_Animated() {
+interface Props {
+  timer: number;
+}
+
+export default function Name_Animated({ timer }: Props) {
   return (
     <>
       <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
-        transition={{ duration: 8, delay: 3, ease: "easeInOut" }}
+        transition={{ duration: 8, delay: timer + 3, ease: "easeInOut" }}
         className={`flex items-center justify-center z-20 w-[100vw] h-[100vh] text-white  md:text-8xl text-6xl font-bold ${AQUIRE.className}`}
         style={{ gap: "5px" }}
       >
-        {"ABHINAV".split("").map((letter, index) => (
+        {"T H I S   I S   M E   !".split("").map((letter, index) => (
           <motion.span
             key={index}
             initial={{ opacity: 0, scale: 1 }}
             animate={{ opacity: 1, scale: [1.5, 1] }}
             transition={{
-              delay: 3 + index * 0.2, // Stagger the delay for each letter
+              delay: timer + 3 + index * 0.05, // Stagger the delay for each letter
               duration: 2,
               ease: "easeInOut",
             }}
@@ -61,7 +65,7 @@ export default function Name_Animated() {
                   transition={{
                     duration: 2,
                     repeat: Infinity,
-                    delay: 14 + index * 1,
+                    delay: timer + 14 + index * 1,
                     ease: easeIn,
                     repeatDelay: 180,
                   }}
@@ -86,7 +90,7 @@ export default function Name_Animated() {
                   transition={{
                     duration: 2,
                     repeat: Infinity,
-                    delay: 22 + index * 1,
+                    delay: timer + 22 + index * 1,
                     ease: easeIn,
                     repeatDelay: 180,
                   }}

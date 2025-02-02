@@ -5,9 +5,11 @@ import { AQUIRE } from "../../utils/fonts";
 import VariableImageGrid from "./variable-image-grid";
 import Name_Animated from "./name-animated";
 
+interface Props {
+    timer: number;
+}
 
-
-export default function Landing_Welcome() {
+export default function Landing_Welcome({ timer }: Props) {
     const letters = "WELCOME".split("");
 
     return (
@@ -16,7 +18,7 @@ export default function Landing_Welcome() {
             <motion.div
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ duration: 2, ease: "easeInOut" }}
+                transition={{ delay: timer, duration: 2, ease: "easeInOut" }}
                 className="absolute top-1/2 left-0 h-1 bg-white"
                 style={{ transform: "translateY(-50%)" }}
             />
@@ -32,7 +34,7 @@ export default function Landing_Welcome() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{
-                            delay: index * 0.1,
+                            delay: timer + index * 0.1,
                             duration: 2,
                             ease: "easeInOut",
                         }}
@@ -46,19 +48,27 @@ export default function Landing_Welcome() {
             <motion.div
                 initial={{ scaleY: 0 }}
                 animate={{ scaleY: 1 }}
-                transition={{ duration: 1.5, delay: 2, ease: "easeInOut" }}
+                transition={{ duration: 1.5, delay: timer + 3, ease: "easeInOut" }}
                 className="absolute inset-0 bg-black origin-center"
             >
             </motion.div>
-            
-            <Name_Animated />
+
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: timer + 2, ease: "easeInOut" }}
+                className="absolute inset-0 z-0"
+            >
+                <Name_Animated timer={timer} />
+            </motion.div>
+
             <motion.div
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 0 }}
-                transition={{ duration: 11, delay: 3, ease: "easeInOut" }}
+                transition={{ duration: 11, delay: timer + 3, ease: "easeInOut" }}
                 className="absolute inset-0 z-0"
             >
-                <VariableImageGrid />
+                <VariableImageGrid timer={timer} />
             </motion.div>
         </div>
     );
