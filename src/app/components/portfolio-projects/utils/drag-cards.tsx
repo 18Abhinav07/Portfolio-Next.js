@@ -1,3 +1,5 @@
+"use client";
+
 import React, { MutableRefObject, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
@@ -6,27 +8,31 @@ import { projects, Project } from "./constants";
 import { ProjectModal } from "./project-modal";
 import { TextAnimation } from "../../contact/utils/text-animation";
 
-export const DragCards = () => {
+interface DragCardsProps {
+    preloadedImages: string[];
+}
+
+export const DragCards = ({ preloadedImages }: DragCardsProps) => {
     return (
         <section className="relative grid min-h-[100vh] w-full max-w-[100vw] place-content-center overflow-hidden bg-neutral-950">
             <h2 className="relative z-0 text-[20vw] font-black text-neutral-800 md:text-[120px] lg:text-[200px]">
                 PROJECTS<span className="text-indigo-500">.</span>
             </h2>
-            <Cards />
-            <TextAnimation text="My  recent  projects  ( also  contains  wip ) .." direction="right" />
+            <Cards preloadedImages={preloadedImages} />
+            <TextAnimation text="My recent projects ( also contains wip ) .." direction="right" />
         </section>
     );
 };
 
-const Cards = () => {
+const Cards = ({ preloadedImages }: { preloadedImages: string[] }) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
 
     return (
         <div className="absolute inset-0 z-10" ref={containerRef}>
-            {projects.map((project) => (
+            {projects.map((project, index) => (
                 <Card
                     key={project.id}
-                    project={project}
+                    project={{ ...project, image: preloadedImages[index] }} // Use preloaded image
                     containerRef={containerRef}
                 />
             ))}

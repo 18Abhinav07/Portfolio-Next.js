@@ -1,6 +1,6 @@
 "use client";
 
-import SmoothScrolling from "@/app/utils/smoothScrolling";
+
 import { ContactLinks } from "./utils/contact-links";
 import TerminalContactForm from "./utils/terminal-contact-form";
 import { AuroraBackground } from "../home/aurora-background";
@@ -31,7 +31,6 @@ export default function Contact() {
                 }}
                 className="absolute top-0 left-0">
                 <AuroraBackground>
-                    <SmoothScrolling />
                     <section className="w-[100vw] min-h-[100vh]">
                         <TerminalContactForm />
                         <ContactLinks />

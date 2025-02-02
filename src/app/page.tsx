@@ -1,27 +1,55 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { AuroraBackground } from "./components/home/aurora-background";
 import Landing_Welcome from "./components/home/landing-welcome";
 import Links from "./components/links/page";
-import SmoothScrolling from "./utils/smoothScrolling";
+import { images } from "./components/home/constants";
+import Loading from "./utils/loading";
 
+// Function to preload images
+const preloadImages = (imageUrls: string[]) => {
+  return Promise.all(
+    imageUrls.map((src) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => resolve(src); // Return the image src after loading
+        img.onerror = reject;
+      });
+    })
+  );
+};
 
 export default function Home() {
+  const [preloadedImages, setPreloadedImages] = useState<string[]>([]);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    preloadImages(images)
+      .then((loadedImages) => {
+        setPreloadedImages(loadedImages as string[]);
+        setImagesLoaded(true);
+      })
+      .catch((err) => console.error("Error loading images", err));
+  }, []);
 
   return (
     <>
-      <SmoothScrolling />
 
-      {/* Landing Animated Welcome */}
-
-      <Landing_Welcome />
-
-      {/* Link Section */}
-
-      <AuroraBackground >
-        <Links />
-      </AuroraBackground>
-
+      {/* Show loading screen until all images are preloaded */}
+      {!imagesLoaded ? (
+        <div className="flex items-center justify-center h-screen w-screen text-2xl">
+          <Loading />
+        </div>
+      ) : (
+        <>
+          <Landing_Welcome images={preloadedImages} />
+          <AuroraBackground>
+            <Links />
+          </AuroraBackground>
+        </>
+      )}
     </>
   );
 }

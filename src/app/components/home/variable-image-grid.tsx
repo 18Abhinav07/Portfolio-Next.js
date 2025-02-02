@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { images } from "./constants";
 import { useEffect, useState } from "react";
+
+interface VariableImageGridProps {
+    images: string[];
+}
 
 // Utility function to shuffle an array
 function shuffleArray<T>(array: T[]): T[] {
@@ -15,23 +18,19 @@ function shuffleArray<T>(array: T[]): T[] {
     return shuffled;
 }
 
-
-
-export default function VariableImageGrid() {
-
+export default function VariableImageGrid({ images }: VariableImageGridProps) {
     const [shuffledImages, setShuffledImages] = useState<string[]>([]);
 
     useEffect(() => {
-        // Shuffle the images when the component mounts
         setShuffledImages(shuffleArray(images));
-    }, []);
+    }, [images]);
 
     return (
         <div
-            className="abolute top-0 left-0 px-2 py-2 grid gap-4"
+            className="absolute top-0 left-0 px-2 py-2 grid gap-4"
             style={{
                 gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-                gridAutoRows: "auto", // Automatically adjust row height
+                gridAutoRows: "auto",
             }}
         >
             {shuffledImages.map((image, index) => (
@@ -44,20 +43,19 @@ export default function VariableImageGrid() {
                         duration: 1,
                         delay: 3 + index * 0.5,
                         type: "spring",
-                        ease: "easeIn"
+                        ease: "easeIn",
                     }}
                 >
                     <Image
                         src={image}
                         alt={`Gallery Image ${index + 1}`}
                         className="block object-cover w-full h-full"
-                        width={500} // Adjust as per your design needs
-                        height={300} // Adjust as per your design needs
-                        layout="responsive" // This ensures the image size is proportional
+                        width={500}
+                        height={300}
+                        layout="responsive"
                     />
                 </motion.div>
             ))}
         </div>
-
     );
 }
