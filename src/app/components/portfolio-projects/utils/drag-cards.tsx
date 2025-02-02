@@ -3,7 +3,6 @@
 import React, { MutableRefObject, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
-import Image from "next/image";
 import { projects, Project } from "./constants";
 import { ProjectModal } from "./project-modal";
 import { TextAnimation } from "../../contact/utils/text-animation";

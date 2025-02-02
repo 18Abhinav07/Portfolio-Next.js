@@ -1,19 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-
 interface VariableImageGridProps {
     images: string[];
 }
 
-
-
 export default function VariableImageGrid({ images }: VariableImageGridProps) {
-
-
-
     return (
         <div
             className="absolute top-0 left-0 px-2 py-2 grid gap-4"
