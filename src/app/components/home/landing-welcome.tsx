@@ -9,7 +9,7 @@ interface LandingWelcomeProps {
     images: string[];
 }
 
-export default function Landing_Welcome({ images }: LandingWelcomeProps) {
+export default function Landing_Welcome() {
     const letters = "WELCOME".split("");
 
     return (
@@ -51,15 +51,16 @@ export default function Landing_Welcome({ images }: LandingWelcomeProps) {
                 transition={{ duration: 1.5, delay: 2, ease: "easeInOut" }}
                 className="absolute inset-0 bg-black origin-center"
             >
-                <Name_Animated />
-                <motion.div
-                    initial={{ opacity: 1 }}
-                    animate={{ opacity: 0 }}
-                    transition={{ duration: 15, delay: 3, ease: "easeInOut" }}
-                    className="absolute inset-0 z-0"
-                >
-                    <VariableImageGrid images={images} />
-                </motion.div>
+            </motion.div>
+            
+            <Name_Animated />
+            <motion.div
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 0 }}
+                transition={{ duration: 11, delay: 3, ease: "easeInOut" }}
+                className="absolute inset-0 z-0"
+            >
+                <VariableImageGrid />
             </motion.div>
         </div>
     );
